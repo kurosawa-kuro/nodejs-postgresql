@@ -1,4 +1,6 @@
-import { Client } from 'pg';
+import postgresql from 'pg';
+const { Client } = postgresql;
+
 import DatabaseConnector from './connectToDatabase';
 
 jest.mock('pg');

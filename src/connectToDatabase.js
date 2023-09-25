@@ -1,4 +1,6 @@
-import { Client } from 'pg';
+import postgresql from 'pg';
+const { Client } = postgresql;
+
 
 // データベース接続情報
 const config = {
@@ -10,7 +12,6 @@ const config = {
 
 class DatabaseConnector {
     constructor() {
-        // PostgreSQLクライアントを作成
         this.client = new Client(config);
     }
 
