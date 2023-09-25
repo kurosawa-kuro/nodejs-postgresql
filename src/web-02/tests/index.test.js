@@ -10,6 +10,7 @@ describe('GET /', () => {
             { id: 2, text: 'Second Todo' },
             { id: 3, text: 'Third Todo' }
         ];
+
         const response = await supertest(app)
             .get('/')
             .expect('Content-Type', /json/)
