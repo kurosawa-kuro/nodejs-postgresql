@@ -6,29 +6,24 @@ const config = {
     host: 'localhost',
     user: 'dev_user',
     password: 'dev_password',
-    database: 'development_db'
+    database: 'test_db'
 };
 
-// クライアントのインスタンスを作成
-const client = new Client(config);
-
 const fetchTodos = async () => {
-    // データベースに接続
+    // 新しいクライアントインスタンスを作成
+    const client = new Client(config);
     await client.connect();
 
     try {
-        // SQLクエリを実行して結果を取得
-        const result = await client.query('SELECT * FROM Todo');
-        // 取得したTodoのリストをコンソールに出力
+        const result = await client.query('SELECT * FROM todo');
         console.log(result.rows);
+        return result.rows;
     } catch (err) {
-        // エラーが発生した場合、エラーメッセージをコンソールに出力
         console.error('Error executing query', err.stack);
+        return [];
     } finally {
-        // データベース接続を終了
         await client.end();
     }
 };
 
-// Todoのリストを取得
-fetchTodos();
+export default fetchTodos;
