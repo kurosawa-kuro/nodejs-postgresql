@@ -6,9 +6,9 @@ const app = express();
 
 app.get('/', (req, res) => {
     const todos = [
-        { id: 1, text: 'First Todo' },
-        { id: 2, text: 'Second Todo' },
-        { id: 3, text: 'Third Todo' }
+        { id: 1, title: 'First Todo' },
+        { id: 2, title: 'Second Todo' },
+        { id: 3, title: 'Third Todo' }
     ];
     res.json(todos);
 });
